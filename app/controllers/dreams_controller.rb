@@ -1,9 +1,10 @@
 class DreamsController < ApplicationController
   # skip_before_action :authenticate_user!, only: %i[index show]
-  # before_action :set_car, only: %i[show edit update destroy]
+  # before_action :set_dream, only: %i[show edit update destroy]
 
   def index
-    @dreams = params[:origin].present? ? Dream.where(origin: params[:origin]) : Dream.all
+    @dreams = Dream.all
+    # params[:origin].present? ? Dream.where(origin: params[:origin]) :
   end
 
   def show
@@ -30,7 +31,7 @@ class DreamsController < ApplicationController
   def update
     @dream = Dream.find(params[:id])
     if @dream.update(dream_params)
-      redirect_to dreams_path(@dream), notice: "cars was successfully updated."
+      redirect_to dreams_path(@dream), notice: "dream was successfully updated."
     else
       render :edit, notice: "dreams was not updated."
     end
