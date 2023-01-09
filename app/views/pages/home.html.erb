@@ -2,12 +2,18 @@
   <div class="container">
     <div class="center_content">
 
-      <h1>Welcome To Book Ta Car !</h1>
+      <h1>Trouve ton rêve à réaliser !</h1>
     <p><span data-controller="typed-js"></span></p>
     <br>
     <br>
-    <h2 class="pb-5">The car rental platform between individuals !</h2>
-      <%= link_to "All the cars here !", dreams_path, class: "button"%>
+    <h2 class="pb-5">Des particuliers mettent à dispositions leurs biens pour vous permettre de réaliser votre rêve.</h2>
+
+      <div class="general-form">
+        <%= form_with do |f| %>
+         <%= f.select :regions, options_for_select([["Où veux-tu faire ton activité de rêve ?", ""], "Auvergnes - Rhône-Alpes", "PACA", "Occtanie", "Nouvelle-Aquitiane", "Centre-Val de Loire", "Pays de la Loire", "Bretagne", "Normandie", "Hauts-de-France", "Grand-Est", "Île-de-France"])%>
+          <%= link_to "All the dreams here !", dreams_path, class: "button"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

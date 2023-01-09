@@ -1,23 +1,21 @@
 // Specific CSS for your home-page
 // Specific CSS for your home-page
 .background{
-  background-image: url("https://images.unsplash.com/photo-1516733968668-dbdce39c4651?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80");
+  background-image: url("dream.jpg");
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   padding-top: 3%;
-  padding-bottom: 20rem;
+  padding-bottom: 17rem;
   flex-grow: 1;
 }
 
 .container{
-  background-color: #fff;
-  border: 1px solid #ccc;
+  color: white;
   border-radius: 6px;
   padding: 100px;
   margin: 0 auto;
-  box-shadow: 0 0 10px #000;
   margin-top: 3%;
   padding-top: 50px;
   padding-bottom: 100px;
@@ -25,4 +23,23 @@
 
 .center_content{
   text-align: center;
+}
+
+.button{
+  text-decoration: none;
+  padding: 12px 16px;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  background-color: #1C3E46;
+  float: right;
+}
+
+.button_class{
+  text-align: right;
+}
+
+.button:hover{
+  background-color: #23aecd;
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
 }
