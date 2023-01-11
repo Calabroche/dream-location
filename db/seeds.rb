@@ -16,9 +16,20 @@
 puts "Cleaning database..."
 Dream.destroy_all
 
-toto = User.create!(
-  email: 'toto@leboss.com',
-  password: '1234567890',
+puts"Base de donnée supprimée"
+
+serge = User.create!(
+  email: 'florian@leboss.com',
+  password: '123456',
+)
+puts"User crée"
+
+Dream.create!(
+  name: 'hello',
+  description: 'coucou je pense que c le meilleur drop du monde',
+  user: serge,
+  regions: 'PACA',
 )
 
-puts 'Finished!'
+
+puts 'BDD créée!'
