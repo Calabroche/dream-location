@@ -1,0 +1,33 @@
+.block-dream{
+  display: flex;
+  justify-content: space-around;
+}
+
+.image-card{
+  background-image: url("plongee.jpg");
+  width: 400px;
+  height: 300px;
+  background-size: cover;
+
+}
+
+.second-card{
+  background-image: url("Helico.jpg");
+  width: 400px;
+  height: 300px;
+  background-size: cover;
+}
+
+
+.third-card{
+  background-image: url("F1.jpg");
+  width: 400px;
+  height: 300px;
+  background-size: cover;
+
+}
+
+p{
+  text-align: center;
+  display: block;
+}
