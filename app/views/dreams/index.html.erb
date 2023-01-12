@@ -10,7 +10,40 @@
       <% if @query %>
         <p>You searched for <strong><%= @query %></strong>. We found <%= @dreams.count %> dreams out of our <%= Dream.count %> on our website.</p>
       <% else %>
-        <p>All <%= Dream.count %> cars.</p>
+        <p>All <%= Dream.count %> dreams.</p>
       <% end %>
     </div>
+  </div>
+
+  <div class="row">
+    <% @dreams.each do |dream| %>
+      <div class="col-md-4 pb-5">
+        <div class="dream-dreamd">
+          <div class="dream-dreamd-content">
+            <div class="dream-dreamd-title">
+
+              <h4><%= dream.name %></h4>
+              <img src="<%= dream.img_url %>" class="image">
+
+            </div>
+            <p><%= dream.description %></p>
+            <div class="flex">
+              <div class="flex align-items-center">
+                <span><%= dream.regions %></span>
+                <i class="fa-solid fa-euro-sign"></i>
+                <span>per day</span>
+              </div>
+            </div>
+          </div>
+          <div class="dream-dreamd-actions">
+            <%= link_to "More info", dream_path(dream) %>
+            <%= link_to "Edit", edit_dream_path(dream), class: "ms-3 text-warning" %>
+            <%= link_to "Remove", dream_path(dream),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "ms-3 text-danger"
+            %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
