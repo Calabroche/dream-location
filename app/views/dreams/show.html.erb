@@ -1,0 +1,43 @@
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="car-show-card">
+        <h1><%= @dream.name %></h1>
+        <p class="car-show-address"><%= @dream.regions %></p>
+      </div>
+      <div class="car-show-card">
+        <h3>A bit more about this car...</h3>
+        <p><%= @dream.name%></p>
+        <img src="<%= @dream.img_url %>"class="image">
+      </div>
+    </div>
+
+
+      <div class="car-show-card pt-3">
+        <h3>Details</h3>
+        <div class="flex">
+          <div class="flex">
+            <%= @dream.description %>€
+          </div>
+          <%# <div class="flex pb-3">
+            <%= @car.year_of_production %>
+          <%# </div> %>
+        </div>
+      </div>
+    </div>
+
+    <h3> Book your car here !</h3>
+
+    <div class="flatpickr-innerContainer">
+      <%= simple_form_for ([@dream, @locations]), data: { controller: 'flatpickr' } do |f| %>
+        <%= f.input :starts_at, as: :string, input_html: { data: {flatpickr_target: "startsAt"}}%>
+        <%= f.input :ends_at, as: :string, input_html: { data: {flatpickr_target: "endsAt"}, id: "end_time"}%>
+        <%= f.submit 'Réserver votre voiture' %>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="button_class">
+  <%= link_to "Back to the list of cars", cars_path, class: "button" %>
+  </div>
+</div>

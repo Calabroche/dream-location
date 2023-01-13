@@ -25,12 +25,42 @@ serge = User.create!(
 puts"User crée"
 
 Dream.create!(
-  name: 'hello',
-  description: 'coucou je pense que c le meilleur drop du monde',
+  name: 'Journée de rêve dans un hélicopter',
+  description: 'Bonjour, je m\'appelle Serge, j\'ai 59 ans et suis un passionné d\hélicopter. J\'ai la chance d\'en avoir un et je voudrais partager cette passion avec une personne qui rêve d\'en faire. Je serais très heureux de pouvoir rendre heureux quelqu\'un',
   user: serge,
   regions: 'PACA',
-  img_url: 'https://images.unsplash.com/photo-1666335009171-3ddc17937d6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+  img_url: 'https://cutt.ly/I2K1bq9'
 )
 
+Dream.create!(
+  name: 'Place V.I.P pour un match de l\'OL en loges',
+  description: 'Bonjour, je propose deux places avc accès V.I.P pour match de l\'ol ',
+  user: serge,
+  regions: 'PACA',
+  img_url: 'https://cutt.ly/v2LHxyb'
+)
 
+Dream.create!(
+  name: 'Traversée de l\'atlantique en catamaran',
+  description: 'Bonjour à tous, je prépare une traversée de l\'atlantique dans un mois au départ Biarritz',
+  user: serge,
+  regions: 'Nouvelle-Aquitiane',
+  img_url: 'https://cutt.ly/j2LHAlb'
+)
+
+Dream.create!(
+  name: 'Journée dans une ferrari',
+  description: 'Passionné d\'automobile, je propose une demi-journée au bord de ma ferrari sur Monac et ses alentours',
+  user: serge,
+  regions: 'PACA',
+  img_url: 'https://urlz.fr/kpLd'
+)
+
+Dream.create!(
+  name: 'Journée de chasse dans le Rhône(69)',
+  description: 'Offre d\'une journée de chasse dans l\'ACCA de Dardilly',
+  user: serge,
+  regions: 'Auvergnes - Rhône-Alpes',
+  img_url: 'https://images.unsplash.com/photo-1615226661904-a5ea74800579?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+)
 puts 'BDD créée!'
