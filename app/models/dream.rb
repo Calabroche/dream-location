@@ -3,4 +3,12 @@ class Dream < ApplicationRecord
   has_many :locations, dependent: :destroy
   validates :name, :description, :regions, presence: :true
   validates :description, length: { in: 10..500}
+
+  after_validation :geocode, if: :will_save_change_to_name_address?
+  geocoded_by :address
+
+  def address
+    "#{number_street} #{name_street} #{post_code} #{city}"
+  end
+
 end

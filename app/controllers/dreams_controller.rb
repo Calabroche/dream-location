@@ -5,6 +5,13 @@ class DreamsController < ApplicationController
   def index
     @dreams = Dream.all
     # params[:origin].present? ? Dream.where(origin: params[:origin]) :
+
+    @markers = Dream.geocoded.map do |dream|
+      {
+        lat: dream.latitude,
+        lng: dream.longitude
+      }
+    end
   end
 
   def show
