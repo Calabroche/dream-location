@@ -8,7 +8,8 @@ class DreamsController < ApplicationController
     @markers = @dreams.geocoded.map do |dream|
       {
         lat: dream.latitude,
-        lng: dream.longitude
+        lng: dream.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {dream:dream}),
       }
     end
   end
