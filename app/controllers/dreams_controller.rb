@@ -12,9 +12,13 @@ class DreamsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {dream:dream}),
       }
     end
+
+    results = FilterDreamsService.new(params[:regions]).call
+    @dreams = results[:dreams]
   end
 
   def show
+    @dream = Dream.find(params[:regions])
     @location = Location.new
   end
 

@@ -11,7 +11,6 @@ class FilterDreamsService
 
   def filter_by_regions
     return unless @regions.present?
-
     @dreams = @dreams.where(regions: @regions)
   end
 end
