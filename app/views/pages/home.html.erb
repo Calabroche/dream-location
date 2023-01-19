@@ -8,11 +8,11 @@
     <br>
     <h2 class="pb-5">Des particuliers mettent à dispositions leurs biens pour vous permettre de réaliser votre rêve.</h2>
 
-      <div class="general-form">
+      <div class="general-form" data-controller="tomselect">
         <%= form_with url: dreams_path, method: "get" do |f| %>
          <%= f.select :regions, options_for_select([["Où veux-tu faire ton activité de rêve ?", ""],
          "Auvergnes - Rhône-Alpes", "PACA", "Occitanie", "Nouvelle-Aquitaine", "Centre-Val de Loire", "Pays de la Loire",
-         "Bretagne","Normandie", "Hauts-de-France", "Grand-Est", "Île-de-France"])%>
+         "Bretagne","Normandie", "Hauts-de-France", "Grand-Est", "Île-de-France"]),{},{id:"select-beast", class: "select"}%>
 
         <%= f.button "All the dreams here !", class: "button" %>
         <% end %>
@@ -54,7 +54,3 @@
 
   <%= image_tag "enjoy.jpg", class:"enjoy-img"%>
 </div>
-
-<footer class="footer">
-
-</footer>
