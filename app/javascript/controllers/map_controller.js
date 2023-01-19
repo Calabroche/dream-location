@@ -9,7 +9,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log('toto')
   }
 
   closePopup(marker) {
@@ -46,7 +45,6 @@ export default class extends Controller {
 
     window.aaa = this
 
-    console.log('JE SUIS A LA FIN DE CONNECT map controller')
     console.log(this.markers)
   }
 

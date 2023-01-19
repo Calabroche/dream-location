@@ -11,11 +11,10 @@
         <% if @query %>
           <p>You searched for <strong><%= @query %></strong>. We found <%= @dreams.count %> dreams out of our <%= Dream.count %> on our website.</p>
         <% else %>
-          <p>All <%= Dream.count %> dreams in your area.</p>
+          <p>All <%= @dreams.count %> dreams in your area.</p>
         <% end %>
       </div>
     </div>
-
     <div class="row">
       <% @dreams.each do |dream| %>
         <div class="col-md-4 pb-5">

@@ -14,11 +14,13 @@ class DreamsController < ApplicationController
     end
 
     results = FilterDreamsService.new(params[:regions]).call
-    @dreams = results[:dreams]
+    puts "test :"
+    puts params["regions"]
+    @dreams = results
   end
 
   def show
-    @dream = Dream.find(params[:regions])
+    @dream = Dream.find(params[:id])
     @location = Location.new
   end
 

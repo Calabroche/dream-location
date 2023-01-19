@@ -10,7 +10,9 @@ class FilterDreamsService
   end
 
   def filter_by_regions
-    return unless @regions.present?
+    # return "no region " unless @regions.present?
+    puts "test2"
+    puts @regions
     @dreams = @dreams.where(regions: @regions)
   end
 end
