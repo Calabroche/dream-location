@@ -31,9 +31,9 @@ Dream.create!(
   regions: 'PACA',
   img_url: 'https://cutt.ly/I2K1bq9',
   number_street: "10",
-  name_street: "rue du paradis",
-  post_code: "69001",
-  city: "Lyon"
+  name_street: "Quai du Port",
+  post_code: "13002",
+  city: "Marseille"
 )
 
 Dream.create!(
@@ -42,29 +42,29 @@ Dream.create!(
   user: serge,
   regions: 'PACA',
   img_url: 'https://cutt.ly/v2LHxyb',
-  number_street: "7",
-  name_street: "Boulevard du Prince de Galles",
-  post_code: "64200",
-  city: "Biarritz"
+  number_street: "2",
+  name_street: "Place de l'Hôtel de Ville",
+  post_code: "83990",
+  city: "Saint-Tropez"
 )
 
 Dream.create!(
   name: 'Traversée de l\'atlantique en catamaran',
   description: 'Bonjour à tous, je prépare une traversée de l\'atlantique dans un mois au départ Biarritz',
   user: serge,
-  regions: 'Nouvelle-Aquitiane',
+  regions: 'PACA',
   img_url: 'https://cutt.ly/j2LHAlb',
-  number_street: "3",
-  name_street: "Rue Abbe Henri Gregoire",
-  post_code: "35000",
-  city: "Rennes"
+  number_street: "1",
+  name_street: "Place Bernard Cornut Gentille",
+  post_code: "06400",
+  city: "Cannes"
 )
 
 Dream.create!(
   name: 'Journée dans une ferrari',
   description: 'Passionné d\'automobile, je propose une demi-journée au bord de ma ferrari sur Monac et ses alentours',
   user: serge,
-  regions: 'PACA',
+  regions: 'Nouvelle-Aquitaine',
   img_url: 'https://images.unsplash.com/photo-1554223090-7e482851df45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80',
   number_street: "10",
   name_street: "Place de la Mairie",

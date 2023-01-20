@@ -1,13 +1,15 @@
-  <h1>All the dreams</h1>
+<div class="title">
+  <h1>Voici tous les rêves de la région séléctionnés</h1>
     <div class="row">
       <div class="col">
         <% if @query %>
           <p>You searched for <strong><%= @query %></strong>. We found <%= @dreams.count %> dreams out of our <%= Dream.count %> on our website.</p>
         <% else %>
-          <p>Vous avez séléctionné <%= @dreams.last.regions %> dreams in your area.</p>
+          <p>Vous avez séléctionné la région <%= @dreams.last.regions %>.</p>
         <% end %>
       </div>
     </div>
+</div>
 <div class="b-box">
   <div class="card-for-img-and-mapbox">
     <% @dreams.each do |dream| %>
@@ -28,7 +30,7 @@
   </div>
 
   <div class="index-map">
-    <div style="width: 450px; height: 640px"
+    <div style="width: 450px; height: 100vh"
       data-controller="map"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
       data-map-markers-value="<%= @markers.to_json %>"
