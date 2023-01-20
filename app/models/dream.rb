@@ -4,7 +4,7 @@ class Dream < ApplicationRecord
   validates :name, :description, :regions, presence: :true
   validates :description, length: { in: 10..500}
 
-  after_validation :geocode, if: :will_save_change_to_name_address?
+  after_validation :geocode, if: :will_save_change_to_name_street?
   geocoded_by :address
 
   def address

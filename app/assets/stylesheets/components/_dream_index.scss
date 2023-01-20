@@ -1,3 +1,43 @@
-.g-box{
+.image{
+  height: 240px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.row{
+  color: black;
+}
+
+.b-box{
   display: flex;
+  width: 100%;
+}
+
+.card-for-img-and-mapbox{
+width: 90%;
+display: flex;
+flex-wrap: wrap;
+}
+
+.div-card{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 15px;
+  grid-column: 1;
+}
+
+.div-card h5{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 250px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.index-map{
+  width: 42%;
+  top: 0;
+  position: sticky;
 }

@@ -65,7 +65,7 @@ Dream.create!(
   description: 'Passionné d\'automobile, je propose une demi-journée au bord de ma ferrari sur Monac et ses alentours',
   user: serge,
   regions: 'PACA',
-  img_url: 'https://urlz.fr/kpLd',
+  img_url: 'https://images.unsplash.com/photo-1554223090-7e482851df45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80',
   number_street: "10",
   name_street: "Place de la Mairie",
   post_code: "98000",
