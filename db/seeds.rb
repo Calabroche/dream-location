@@ -54,8 +54,8 @@ Dream.create!(
   user: serge,
   regions: 'PACA',
   img_url: 'https://cutt.ly/j2LHAlb',
-  number_street: "1",
-  name_street: "Place Bernard Cornut Gentille",
+  number_street: "10",
+  name_street: "boulevard de la république",
   post_code: "06400",
   city: "Cannes"
 )

@@ -10,11 +10,11 @@
       </div>
     </div>
 </div>
-<div class="b-box">
+<div class="b-box" data-controller="dreams">
   <div class="card-for-img-and-mapbox">
     <% @dreams.each do |dream| %>
-    <div class="div-card">
-      <%= image_tag dream.img_url, class: 'image', data: {action: 'mouseenter->dreams#onCard'}%>
+    <div class="div-card" data-action="mouseenter->dreams#onCard" data-id="<%= dream.id %>">
+      <%= image_tag dream.img_url, class: 'image' %>
         <%# <p><%= dream.description </p> %>
       <h5><%= dream.name %></h5>
       <div class="dream-dreamd-actions">

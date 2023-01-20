@@ -9,27 +9,6 @@ export default class extends Controller {
   }
 
   connect() {
-  }
-
-  closePopup(marker) {
-    const p = marker.getPopup()
-    if (p.isOpen())
-      marker.togglePopup()
-  }
-
-  openPopup(marker) {
-    const p = marker.getPopup()
-    if (!p.isOpen())
-      marker.togglePopup()
-  }
-
-  popup(event) {
-    const marker = this.markers.find((m) => m.id === event.detail)
-    this.markers.forEach(m => this.closePopup(m))
-    this.openPopup(marker)
-  }
-
-  connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -44,8 +23,28 @@ export default class extends Controller {
       mapboxgl: mapboxgl }))
 
     window.aaa = this
+  }
 
-    console.log(this.markers)
+  closePopup(marker) {
+    const popup = marker.getPopup()
+    if (popup.isOpen()) {
+      marker.togglePopup()
+    }
+  }
+
+  openPopup(marker) {
+    console.log("open");
+    console.log(marker);
+    const popup = marker.getPopup()
+    if (!popup.isOpen()) {
+      marker.togglePopup()
+    }
+  }
+
+  popup(event) {
+    this.markers.forEach(marker => this.closePopup(marker))
+    const marker = this.markers.find((marker) => marker.id == event.detail)
+    this.openPopup(marker)
   }
 
   #addMarkersToMap() {
@@ -64,7 +63,7 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 65, duration: 0 })
   }
 
 }

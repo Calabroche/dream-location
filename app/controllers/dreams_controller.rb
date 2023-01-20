@@ -5,18 +5,20 @@ class DreamsController < ApplicationController
   def index
     @dreams = Dream.all
     # params[:origin].present? ? Dream.where(origin: params[:origin]) :
-    @markers = @dreams.geocoded.map do |dream|
-      {
-        lat: dream.latitude,
-        lng: dream.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {dream:dream}),
-      }
-    end
-
     results = FilterDreamsService.new(params[:regions]).call
     puts "test :"
     puts params["regions"]
     @dreams = results
+    @markers = @dreams.geocoded.map do |dream|
+      puts dream.name
+      {
+        lat: dream.latitude,
+        lng: dream.longitude,
+        id: dream.id,
+        info_window: render_to_string(partial: "info_window", locals: {dream:dream}),
+      }
+    end
+
   end
 
   def show
