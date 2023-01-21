@@ -3,7 +3,7 @@
   margin: 0 auto;
   margin-top: 80px;
   margin-bottom: 80px;
-  background-color: #814570;
+  background-color: #471b3b;
   padding: 50px;
   color: white;
   border-radius: 10px;
@@ -11,8 +11,10 @@
 }
 
 .reve-img{
-  width: 250px;
+  width: 300px;
   height: 450px;
+  border-radius: 10px;
+  margin-bottom: -30px;
 }
 
 .login-title{
@@ -27,9 +29,10 @@
 .form-inputs{
   align-items: center;
   width: 550px;
-  margin-right: 80px;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
 
 .button-login{
-  color: white
+  color: white;
 }

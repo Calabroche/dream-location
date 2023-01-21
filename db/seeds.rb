@@ -61,15 +61,40 @@ Dream.create!(
 )
 
 Dream.create!(
-  name: 'Journée dans une ferrari',
-  description: 'Passionné d\'automobile, je propose une demi-journée au bord de ma ferrari sur Monac et ses alentours',
+  name: "Journée en jet ski",
+  description: 'Bonjour, je propose une journée en jetski pour 2 personnes.',
   user: serge,
-  regions: 'Nouvelle-Aquitaine',
+  regions: 'PACA',
+  img_url: 'https://images.unsplash.com/photo-1583008585590-c4ed0010bed6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  number_street: "3001",
+  name_street: "Route des Hauts du Camp",
+  post_code: "83330",
+  city: "Le Castellet"
+)
+
+
+Dream.create!(
+  name: 'Journée dans une ferrari',
+  description: 'Passionné d\'automobile, je propose une demi-journée au bord de ma ferrari sur Monaco et ses alentours',
+  user: serge,
+  regions: 'PACA',
   img_url: 'https://images.unsplash.com/photo-1554223090-7e482851df45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80',
   number_street: "10",
   name_street: "Place de la Mairie",
   post_code: "98000",
   city: "Monaco"
+)
+
+Dream.create!(
+  name: 'Soirée offert au casino',
+  description: 'Offre de 1000€ pour aller jouer au casino de Cannes',
+  user: serge,
+  regions: 'PACA',
+  img_url: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  number_street: "54",
+  name_street: "Bd d’Alsace",
+  post_code: "06400",
+  city: "Cannes"
 )
 
 Dream.create!(
@@ -83,4 +108,5 @@ Dream.create!(
   post_code: "67076",
   city: "Strasbourg"
 )
+
 puts 'BDD créée!'
