@@ -5,7 +5,7 @@
         <% if @query %>
           <p>You searched for <strong><%= @query %></strong>. We found <%= @dreams.count %> dreams out of our <%= Dream.count %> on our website.</p>
         <% else %>
-          <p>Vous avez séléctionné la région <%= @dreams.last.regions %>.</p>
+          <p>Vous avez séléctionné la région <%= @dreams.first.regions %>.</p>
         <% end %>
       </div>
     </div>
