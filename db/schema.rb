@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_16_155646) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_24_173333) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_155646) do
     t.date "ends_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "dream_id", null: false
+    t.index ["dream_id"], name: "index_locations_on_dream_id"
+    t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -63,4 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_155646) do
   end
 
   add_foreign_key "dreams", "users"
+  add_foreign_key "locations", "dreams"
+  add_foreign_key "locations", "users"
 end

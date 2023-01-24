@@ -11,6 +11,11 @@
 @import "components/index";
 @import "pages/index";
 
+//Flatpickr
+@import "flatpickr/dist/flatpickr.css";
+@import "flatpickr/dist/themes/airbnb";
+
+
 .background-color{
   background-color: #FFF1FB;
 }
