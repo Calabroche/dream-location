@@ -8,19 +8,23 @@
   <img src="<%= @dream.img_url %>"class="image">
 </div>
 
-<div class="show-description">
-  <h3>Details</h3>
-  <%= @dream.description %>€
-</div>
-  <h3> Réserve ton rêve ici !</h3>
-    <div class="flatpickr-innerContainer">
-      <%= simple_form_for ([@dream, @location]), data: { controller: 'flatpickr' } do |f| %>
-        <%= f.input :starts_at, as: :string, input_html: { data: {flatpickr_target: "startsAt"}}%>
-        <%= f.input :ends_at, as: :string, input_html: { data: {flatpickr_target: "endsAt"}, id: "end_time"}%>
-        <%= f.submit 'Réserver votre reves' %>
-      <% end %>
-    </div>
 
+<div class="div-for-des-calandar">
+  <div class="show-description">
+    <h3>Details</h3>
+    <%= @dream.description %>€
+  </div>
+  <div class="h-calendar">
+    <h5> Réserve ton rêve ici !</h5>
+      <div class="flatpickr-innerContainer">
+        <%= simple_form_for ([@dream, @location]), data: { controller: 'flatpickr' } do |f| %>
+          <%= f.input :starts_at, as: :string, input_html: { data: {flatpickr_target: "startsAt"}}%>
+          <%= f.input :ends_at, as: :string, input_html: { data: {flatpickr_target: "endsAt"}, id: "end_time"}%>
+          <%= f.submit 'Réserver votre rêve' %>
+        <% end %>
+      </div>
+  </div>
+</div>
 
 <div class="button_class">
 <%= link_to "Retourner sur la listes des rêves", dreams_path, class: "button" %>

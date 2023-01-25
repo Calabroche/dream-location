@@ -20,5 +20,34 @@
 }
 
 .show-description{
-  margin: 30px 290px 30px 290px;
+  margin: 30px 20px 30px 290px;
+  width: 50%;
+}
+
+
+.div-for-des-calandar{
+  display: flex;
+}
+
+.h-calendar{
+  width: 25%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 6px 16px grey;
+}
+
+// .h-calendar h3{
+//   margin: 30px 0px 30px 0px;
+// }
+
+.flatpickr-innerContainer{
+  margin-bottom: 30px;
+}
+
+.form-control{
+  width: 164%;
 }
