@@ -1,7 +1,6 @@
 class FilterDreamsService
 
   def initialize(regions)
-    @dreams = Dream.all
     @regions = regions
   end
 
@@ -10,9 +9,7 @@ class FilterDreamsService
   end
 
   def filter_by_regions
-    # return "no region " unless @regions.present?
-    puts "test2"
     puts @regions
-    @dreams = @dreams.where(regions: @regions)
+    @dreams = Dream.where(regions: @regions)
   end
 end

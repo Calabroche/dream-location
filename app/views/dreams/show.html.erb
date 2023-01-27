@@ -4,10 +4,22 @@
 <div class="text-for-show">
   <p class="car-show-address">Rappel, vous avez choisis la région: <%= @dream.regions %></p>
 </div>
-<div class="image-show-dreams">
-  <img src="<%= @dream.img_url %>"class="image">
-</div>
 
+<div class="class-for-img">
+  <div class="image-show-dreams">
+    <img src="<%= @dream.img_url_one %>"class="image">
+  </div>
+
+  <div class="image-two-show-dreams">
+    <img src="<%= @dream.img_url_two %>"class="image-two">
+    <img src="<%= @dream.img_url_three %>"class="image-two">
+  </div>
+
+  <div class="image-three-show-dreams">
+    <img src="<%= @dream.img_url_four %>"class="image-two">
+    <img src="<%= @dream.img_url_five %>"class="image-two">
+  </div>
+</div>
 
 <div class="div-for-des-calandar">
   <div class="show-description">
@@ -20,7 +32,7 @@
         <%= simple_form_for ([@dream, @location]), data: { controller: 'flatpickr' } do |f| %>
           <%= f.input :starts_at, as: :string, input_html: { data: {flatpickr_target: "startsAt"}}%>
           <%= f.input :ends_at, as: :string, input_html: { data: {flatpickr_target: "endsAt"}, id: "end_time"}%>
-          <%= f.submit 'Réserver votre rêve' %>
+          <%= f.submit 'Réserver votre rêve', class: "submit" %>
         <% end %>
       </div>
   </div>

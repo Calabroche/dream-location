@@ -7,7 +7,9 @@
   width: 280px;
   border-radius: 8px;
 }
-
+.card-for-img-and-mapbox{
+  height: fit-content;
+}
 .row{
   color: black;
 }
@@ -28,6 +30,8 @@ flex-wrap: wrap;
   flex-direction: column;
   margin: 10px;
   grid-column: 1;
+  width: 300px;
+  height: fit-content;
 }
 
 .div-card h5{
@@ -41,6 +45,6 @@ flex-wrap: wrap;
 
 .index-map{
   width: 42%;
-  top: 0;
   position: sticky;
+  top: 100px;
 }

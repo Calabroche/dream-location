@@ -14,7 +14,7 @@
   <div class="card-for-img-and-mapbox">
     <% @dreams.each do |dream| %>
     <div class="div-card" data-action="mouseenter->dreams#onCard" data-id="<%= dream.id %>">
-      <%= image_tag dream.img_url, class: 'image' %>
+      <%= image_tag dream.img_url_one, class: 'image' %>
         <%# <p><%= dream.description </p> %>
       <h5><%= dream.name %></h5>
       <div class="dream-dreamd-actions">
@@ -29,6 +29,7 @@
     <% end %>
   </div>
 
+<% if @dreams.any? %>
   <div class="index-map">
     <div style="width: 450px; height: 100vh"
       data-controller="map"
@@ -38,4 +39,6 @@
       data-dreams-target="map">
     </div>
   </div>
+<% end %>
 </div>
+

@@ -21,7 +21,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_173333) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.text "regions"
-    t.string "img_url"
+    t.text "img_url_one"
+    t.text "img_url_two"
+    t.text "img_url_three"
+    t.text "img_url_four"
+    t.text "img_url_five"
     t.float "latitude"
     t.float "longitude"
     t.integer "number_street"

@@ -3,24 +3,25 @@
   p{
     font-size: 14px;
     margin: 5px;
-    color: white;
+    color: rgb(0, 0, 0);
   }
   img{
     width: 170px;
     height: 150px;
     margin: 5px;
+    border-radius: 8px;
   }
 }
 
 //popup js
 .mapboxgl-popup-content{
   border-radius: 10px;
-  background-color: black;
+  background-color: #FFF1FB;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
   align-self: center;
-  border-bottom-color: #000;
+  border-bottom-color: #FFF1FB;
   border-top: none;
 }
 

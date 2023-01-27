@@ -61,7 +61,7 @@ class DreamsController < ApplicationController
   private
 
   def dream_params
-    params.require(:dream).permit(:name, :description, :address, :activity, :region, :img_url)
+    params.require(:dream).permit(:name, :description, :address, :activity, :region, :img_url_one, :img_url_two)
   end
 
   def set_dream
