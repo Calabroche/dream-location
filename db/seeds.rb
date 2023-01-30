@@ -18,16 +18,24 @@ Dream.destroy_all
 
 puts"Base de donnée supprimée"
 
-serge = User.create!(
+florian = User.create!(
   email: 'florian@leboss.com',
   password: '123456',
+  nickname: "Florian",
 )
+
+helena = User.create!(
+  email: 'helena@laboss.com',
+  password: '123456',
+  nickname: "Héléna",
+)
+
 puts"User crée"
 
 Dream.create!(
   name: 'Journée de rêve dans un hélicopter',
-  description: 'Bonjour, je m\'appelle Serge, j\'ai 59 ans et suis un passionné d\hélicopter. J\'ai la chance d\'en avoir un et je voudrais partager cette passion avec une personne qui rêve d\'en faire. Je serais très heureux de pouvoir rendre heureux quelqu\'un',
-  user: serge,
+  description: 'Bonjour, je m\'appelle Florian, j\'ai 59 ans et suis un passionné d\hélicopter. J\'ai la chance d\'en avoir un et je voudrais partager cette passion avec une personne qui rêve d\'en faire. Je serais très heureux de pouvoir rendre heureux quelqu\'un',
+  user: florian,
   regions: 'PACA',
   img_url_one: 'https://cutt.ly/I2K1bq9',
   img_url_two: 'https://cutt.ly/I2K1bq9',
@@ -43,7 +51,7 @@ Dream.create!(
 Dream.create!(
   name: 'Place V.I.P pour un match de l\'OL en loges',
   description: 'Bonjour, je propose deux places avc accès V.I.P pour match de l\'ol ',
-  user: serge,
+  user: florian,
   regions: 'PACA',
   img_url_one: 'https://cutt.ly/v2LHxyb',
   img_url_two: 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
@@ -59,7 +67,7 @@ Dream.create!(
 Dream.create!(
   name: 'Traversée de l\'atlantique en catamaran',
   description: 'Bonjour à tous, je prépare une traversée de l\'atlantique dans un mois au départ Biarritz',
-  user: serge,
+  user: florian,
   regions: 'PACA',
   img_url_one: 'https://cutt.ly/j2LHAlb',
   img_url_two: 'https://cutt.ly/I2K1bq9',
@@ -75,7 +83,7 @@ Dream.create!(
 Dream.create!(
   name: "Journée en jet ski",
   description: 'Bonjour, je propose une journée en jetski pour 2 personnes.',
-  user: serge,
+  user: florian,
   regions: 'PACA',
   img_url_one: 'https://images.unsplash.com/photo-1583008585590-c4ed0010bed6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
   img_url_two: 'https://cutt.ly/I2K1bq9',
@@ -92,7 +100,7 @@ Dream.create!(
 Dream.create!(
   name: 'Journée dans une ferrari',
   description: 'Passionné d\'automobile, je propose une demi-journée au bord de ma ferrari sur Monaco et ses alentours',
-  user: serge,
+  user: florian,
   regions: 'PACA',
   img_url_one: 'https://images.unsplash.com/photo-1554223090-7e482851df45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80',
   img_url_two: 'https://cutt.ly/I2K1bq9',
@@ -108,7 +116,7 @@ Dream.create!(
 Dream.create!(
   name: 'Soirée offert au casino',
   description: 'Offre de 1000€ pour aller jouer au casino de Cannes',
-  user: serge,
+  user: florian,
   regions: 'PACA',
   img_url_one: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
   img_url_two: 'https://cutt.ly/I2K1bq9',
@@ -124,7 +132,7 @@ Dream.create!(
 Dream.create!(
   name: 'Journée de chasse dans le Rhône(69)',
   description: 'Offre d\'une journée de chasse dans l\'ACCA de Dardilly',
-  user: serge,
+  user: florian,
   regions: 'Auvergnes - Rhône-Alpes',
   img_url_one: 'https://images.unsplash.com/photo-1615226661904-a5ea74800579?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
   img_url_two: 'https://cutt.ly/I2K1bq9',
