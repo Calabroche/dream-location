@@ -1,18 +1,21 @@
-<div class="container chatroom">
-  <h1><%= @chatroom.name %></h1>
-  <div class="messages"
-   data-chatroom-subscription-target="messages"
-    data-controller="chatroom-subscription"
-    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+<div class="container chatroom"
+  data-controller="chatrooms"
+  data-chatrooms-chatroom-id-value="<%= @chatroom.id %>"
+>
+
+<h1><%= @chatroom.name %></h1>
+<div class="messages" data-chatrooms-target="messages">
+
     <% @chatroom.messages.each do |message| %>
+  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
       <%= render "messages/message", message: message %>
-    <% end %>
   </div>
+  </div>
+    <% end %>
+</div>
 
-  <%= form_with(model: @message, url: [@chatroom, @message]) do |form| %>
-    <%= form.text_field :content %>
-    <%= form.submit class: "btn btn-primary", data: { disable_with: "Submitting..." }, id: "submit-button" %>
-  <% end %>
-
-
+<%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+<%  end %>
 </div>
