@@ -8,8 +8,7 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
 
-    @chatroom = Chatroom.find(params[:chatroom_id])
-    @messages = Message.where(chatroom_id: @chatroom)
+    @messages = Message.where(chatroom: @chatroom)
   end
 
   def new
@@ -19,7 +18,7 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(chatroom_params)
     if @chatroom.save
-      render :show, status: :created
+      redirect_to chatroom_path(@chatroom)
     else
       render :new, :unprocessable_entity
     end

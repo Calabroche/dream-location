@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :locations, only: [:create]
   end
   resources :chatrooms, only: [:show, :index, :new, :create] do
-    resources :messages, only: [:new, :create]
+    resources :messages, only: [:create]
   end
 end

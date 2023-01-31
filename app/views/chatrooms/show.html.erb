@@ -1,19 +1,18 @@
 <div class="container chatroom">
-  <h1>#<%= @chatroom.name %></h1>
-
+  <h1><%= @chatroom.name %></h1>
   <div class="messages"
+   data-chatroom-subscription-target="messages"
     data-controller="chatroom-subscription"
-      data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-   >
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
-<%= form_with(model: @message, url: [@chatroom, @message]) do |form| %>
-  <%= form.text_field :content %>
-  <%= form.submit class: "btn btn-primary", data: { disable_with: "Submitting..." }, id: "submit-button" %>
+  <%= form_with(model: @message, url: [@chatroom, @message]) do |form| %>
+    <%= form.text_field :content %>
+    <%= form.submit class: "btn btn-primary", data: { disable_with: "Submitting..." }, id: "submit-button" %>
+  <% end %>
 
-  <%# <%= link_to "Créer un chat", new_chatroom_path %>
-<% end %>
+
 </div>

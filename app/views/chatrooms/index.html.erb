@@ -1,4 +1,4 @@
-<div class="general">
+
   <div class="two-first-div"></div>
   <%= form_with(model: Chatroom.new) do |form| %>
     <%= form.text_field :name %>
@@ -15,25 +15,3 @@
   </div>
   <%# ici lien vers le new de chartoom, que j'ai supprimé %>
   <%# <%= link_to "Créer un chat", new_chatroom_path %>
-
-
-  <div class="container chatroom">
-    <h1>#<%= @chatroom.name %></h1>
-
-    <div class="messages"
-      data-controller="chatroom-subscription"
-        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-    >
-      <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-      <% end %>
-    </div>
-
-  <%= form_with(model: @message, url: [@chatroom, @message]) do |form| %>
-    <%= form.text_field :content %>
-    <%= form.submit class: "btn btn-primary", data: { disable_with: "Submitting..." }, id: "submit-button" %>
-
-    <%# <%= link_to "Créer un chat", new_chatroom_path %>
-  <% end %>
-  </div>
-</div>
