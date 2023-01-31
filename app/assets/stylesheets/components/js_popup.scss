@@ -27,14 +27,14 @@
 
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
   align-self: flex-start;
-  border-bottom-color: rgb(0, 0, 0);
+  border-bottom-color: #FFF1FB;
   border-left: none;
   border-top: none;
 }
 
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
     align-self: flex-end;
-    border-bottom-color: rgb(0, 0, 0);
+    border-bottom-color: #FFF1FB;
     border-right: none;
     border-top: none;
 }
@@ -42,33 +42,33 @@
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
   align-self: center;
   border-bottom: none;
-  border-top-color: rgb(0, 0, 0);
+  border-top-color: #FFF1FB;
 }
 
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
   align-self: flex-start;
   border-bottom: none;
   border-left: none;
-  border-top-color: rgb(0, 0, 0);
+  border-top-color: #FFF1FB;
 }
 
 .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
   align-self: flex-end;
   border-bottom: none;
   border-right: none;
-  border-top-color: rgb(0, 0, 0);
+  border-top-color: #FFF1FB;
 }
 
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
   align-self: flex-end;
   border-bottom: none;
   border-right: none;
-  border-top-color: rgb(0, 0, 0);
+  border-top-color: #FFF1FB;
 }
 
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
   align-self: flex-end;
   border-bottom: none;
   border-right: none;
-  border-top-color: rgb(0, 0, 0);
+  border-top-color: #FFF1FB;
 }

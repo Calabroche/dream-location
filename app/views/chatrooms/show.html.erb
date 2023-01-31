@@ -9,10 +9,11 @@
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
-  <%= simple_form_for [@chatroom, @message], remote:  true do |f|%>
-    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-    <%# , wrapper_html: {class: "flex-grow-1"}%>
-    <%# <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
 
+<%= form_with(model: @message, url: [@chatroom, @message]) do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit class: "btn btn-primary", data: { disable_with: "Submitting..." }, id: "submit-button" %>
+
+  <%# <%= link_to "Créer un chat", new_chatroom_path %>
+<% end %>
 </div>

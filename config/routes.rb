@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :dreams do
     resources :locations, only: [:create]
   end
-  resources :chatrooms, only: [:show, :index, :new] do
-    resources :messages, only: :create
+  resources :chatrooms, only: [:show, :index, :new, :create] do
+    resources :messages, only: [:new, :create]
   end
 end
