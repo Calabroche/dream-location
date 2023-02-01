@@ -18,7 +18,7 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(chatroom_params)
     if @chatroom.save
-      redirect_to chatroom_path(@chatroom)
+      redirect_to chatrooms_path
     else
       render :new, :unprocessable_entity
     end

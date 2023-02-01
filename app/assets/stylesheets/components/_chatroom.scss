@@ -8,6 +8,10 @@
   flex-grow: 1;
   color: black;
 
+  .form-control{
+    width: 100%;
+  }
+
   h1 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
@@ -21,10 +25,12 @@
 
   .messages {
     height: 100%;
-    overflow: scroll;
+    // overflow: scroll;
     padding: 1rem;
     p{
       color: black;
+      background-color: #84d0e9;
+      padding: 10px;
     }
   }
 
@@ -36,4 +42,9 @@
       margin-bottom: 0;
     }
   }
+}
+
+
+.chatroom .container{
+    margin-bottom: 0px;
 }

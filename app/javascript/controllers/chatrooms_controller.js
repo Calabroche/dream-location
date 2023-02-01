@@ -3,7 +3,7 @@ import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   static values = { chatroomId: Number }
-  // static targets = ["messages"]
+  static targets = ["messages"]
 
   connect() {
 
@@ -26,8 +26,8 @@ export default class extends Controller {
     )
   }
 
-  // #insertMessageAndScrollDown(data) {
-  //   this.element.insertAdjacentHTML("beforeend", data)
-  //   this.element.scrollTo(0, this.element.scrollHeight)
-  // }
+  #insertMessageAndScrollDown(data) {
+  this.element.insertAdjacentHTML("beforeend", data)
+  this.element.scrollTo(0, this.element.scrollHeight)
+  }
 }

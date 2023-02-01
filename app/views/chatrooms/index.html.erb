@@ -9,7 +9,7 @@
   <div class="general-presentation-chatroom">
     <% @chatrooms.each do |chat|  %>
       <div class="presentation-chatroom">
-        <%= chat.name %>
+        <%= link_to chat.name, chatroom_path(chat.id), class: "test" %>
       </div>
     <% end %>
   </div>
