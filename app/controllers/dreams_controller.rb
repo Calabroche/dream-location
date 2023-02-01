@@ -21,6 +21,10 @@ class DreamsController < ApplicationController
 
   end
 
+  def search
+    @dreams = Dream.where("name LIKE?", "%" + params[:q] + "%")
+  end
+
   def show
     @dream = Dream.find(params[:id])
     @location = Location.new

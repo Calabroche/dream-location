@@ -1,5 +1,5 @@
 <div class="title">
-  <h1>Voici tous les rêves de la région séléctionnés</h1>
+  <h1>Voici les rêves sur la région séléctionnée</h1>
     <div class="row">
       <div class="col">
         <% if @query %>
@@ -10,6 +10,12 @@
       </div>
     </div>
 </div>
+
+<form class="form-inline my-2  my-lg-0" action="/index">
+  <input class="form-control mr-sm-2" name="q" type="text" placeholder="Rechercher une activitée en particulier" aria-label="index">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+</form>
+
 <div class="b-box" data-controller="dreams">
   <div class="card-for-img-and-mapbox">
     <% @dreams.each do |dream| %>

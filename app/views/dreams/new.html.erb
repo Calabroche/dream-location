@@ -1,12 +1,10 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-6 m-auto">
-      <div class="car-form">
-        <h1>Add a new dream</h1>
-        <div class="mt-3">
-          <%= render "form", dream: @dream %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+<h1>Add a new dream</h1>
+<%# <%= render "form", dream: @dream %>
+<%= simple_form_for(@dream) do |f| %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= f.input :regions %>
+<%= f.input :img_url_one %>
+<%= f.submit class: "btn btn-primary" %>
+<% end %>
