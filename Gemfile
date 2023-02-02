@@ -47,6 +47,7 @@ gem "sassc-rails"
 gem "devise"
 gem "geocoder"
 gem "sendgrid-ruby"
+gem "ransack"
 # gem "cloudinary", "~> 1.2.2"
 #
 
