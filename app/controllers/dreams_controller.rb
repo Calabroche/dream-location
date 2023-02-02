@@ -21,8 +21,19 @@ class DreamsController < ApplicationController
 
   end
 
-  def search
-    @dreams = Dream.where("name LIKE?", "%" + params[:q] + "%")
+  # def search
+  #   @dreams = Dream.where("name LIKE?", "%" + params[:q] + "%")
+  # end
+
+  def list
+    session['filters'] = {} if session['filters'].blank?
+
+    session['filters'].merge!(filter_params)
+    dreams = Dream.includes(:name)
+    dreams = dreams.where('dreams.name ilike ?', "%#{session['filters']['name']}%") if session['filters']['name'].present?
+    dreams = dreams.order("#{session['filters']['column']} #{session['filters']['direction']}")
+
+    render(partial: 'dreams', locals: { dreams: dreams })
   end
 
   def show
