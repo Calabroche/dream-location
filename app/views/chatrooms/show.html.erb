@@ -1,10 +1,11 @@
-<div class="container chatroom"
-  data-controller="chatrooms"
-  data-chatrooms-chatroom-id-value="<%= @chatroom.id %>"
->
+<div class="cont chatroom">
 
 <h1><%= @chatroom.name %></h1>
-<div class="messages" data-chatrooms-target="messages">
+<div class="messages"
+data-chatrooms-target="messages"
+data-controller="chatrooms"
+data-chatrooms-chatroom-id-value="<%= @chatroom.id %>"
+>
 
     <% @chatroom.messages.each do |message| %>
   <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">

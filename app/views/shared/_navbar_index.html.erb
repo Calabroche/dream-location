@@ -1,11 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="all-selector">
-        <%= search_form_for @q do |f| %>
+        <%= form_with url: dreams_path, method: :get do |f| %>
           <%= f.label "rechercher votre marque" %>
-            <%= f.search_field :name %>
+          <%= f.search_field :query %>
           <%= f.submit %>
         <% end %>
     </div>
   </div>
 </div>
+
+
+<%# <h3>What do you want to do today ?</h3>
+    <%= form_with url: sports_path, method: :get, class: “d-flex” do %>
+        <%# <%= text_field_tag :query, params[:query], class: “form-control”, placeholder: “Sports” %>
+        <%# <%= submit_tag “Go”, class: “btn”%>
+    <%# <% end %>

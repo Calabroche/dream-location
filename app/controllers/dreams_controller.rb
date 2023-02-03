@@ -4,15 +4,17 @@ class DreamsController < ApplicationController
 
   def index
     @dreams = Dream.all
-    
-    @q = @dreams.ransack(params[:q])
-    @dreams = @q.result(distinct: true)
 
     # params[:origin].present? ? Dream.where(origin: params[:origin]) :
     results = FilterDreamsService.new(params[:regions]).call
-    puts "test :"
     puts params["regions"]
     @dreams = results
+
+    #ici je filtre les dreams
+    if params[:query].present?
+      @dreams = Dream.where("name ILIKE ?", "%" + params[:query] + "%")
+    end
+
     @markers = @dreams.geocoded.map do |dream|
       puts dream.name
       {
@@ -25,9 +27,9 @@ class DreamsController < ApplicationController
 
   end
 
-  def search
-    @dreams = Dream.where("name LIKE?", "%" + params[:q] + "%")
-  end
+  # def search
+  #   @dreams = Dream.where("name LIKE?", "%" + params[:q] + "%")
+  # end
 
   # def list
   #   session['filters'] = {} if session['filters'].blank?

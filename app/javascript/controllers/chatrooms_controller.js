@@ -6,32 +6,15 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
-    console.log("toto")
-    console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`);
     this.channel = createConsumer().subscriptions.create(
-      {
-        channel: "ChatroomChannel",
-        id: this.chatroomIdValue
-      },
-      {
-        received: (data) => {
-          console.log(data);
-          this.element.insertAdjacentHTML("beforeend", data)
-          this.#insertMessageAndScrollDown(data)
-        },
-        connected: () => {
-          console.log("connect");
-        }
-      },
+      { channel: "ChatroomChannel", id: this.chatroomIdValue },
+      { received: data => this._insertMessageAndScrollDown(data) }
     )
-    console.log("tutu")
-
+    console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
   }
   #insertMessageAndScrollDown(data) {
-  console.log("LALALALA")
-  this.element.insertAdjacentHTML("beforeend", data)
-  this.element.scrollTo(0, this.element.scrollHeight)
-  console.log("lololo")
+    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
 }
