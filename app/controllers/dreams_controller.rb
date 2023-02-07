@@ -11,6 +11,14 @@ class DreamsController < ApplicationController
     @dreams = results
 
     #ici je filtre les dreams
+    if params[:query].present?
+      @dreams = Dream.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+    respond_to do |format|
+      format.html
+      format.text { render partial: "dreams_list", locals: { dreams: @dreams }, formats: [:html] }
+    end
+
     # @dreams = Dream.where('name ilike ?', "%#{params[:name]}%") if params[:name].present?
     # render(partial: 'dreams', locals: { dreams: @dreams })
     #autre façon
