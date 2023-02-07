@@ -11,9 +11,12 @@ class DreamsController < ApplicationController
     @dreams = results
 
     #ici je filtre les dreams
-    if params[:query].present?
-      @dreams = Dream.where("name ILIKE ?", "%" + params[:query] + "%")
-    end
+    @dreams = Dream.where('name ilike ?', "%#{params[:name]}%") if params[:name].present?
+    render(partial: 'dreams', locals: { dreams: @dreams })
+
+    # if params[:query].present?
+    #   @dreams = Dream.where("name ILIKE ?", "%" + params[:query] + "%")
+    # end
 
     @markers = @dreams.geocoded.map do |dream|
       puts dream.name
@@ -24,7 +27,6 @@ class DreamsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {dream:dream}),
       }
     end
-
   end
 
   # def search
