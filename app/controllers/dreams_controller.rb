@@ -8,7 +8,6 @@ class DreamsController < ApplicationController
     results = FilterDreamsService.new(params[:regions]).call
     @dreams = results
 
-    #ici je filtre les dreams
     @markers = @dreams.geocoded.map do |dream|
       puts dream.name
       {
@@ -19,7 +18,7 @@ class DreamsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { dream: dream }, formats: [:html]),
       }
     end
-    
+    #ici je filtre les dreams
     if params[:query].present?
       @dreams = Dream.where("name ILIKE ?", "%#{params[:query]}%")
     end
