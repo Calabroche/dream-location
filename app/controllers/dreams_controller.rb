@@ -5,20 +5,10 @@ class DreamsController < ApplicationController
   def index
     @dreams = Dream.all
 
-    # params[:origin].present? ? Dream.where(origin: params[:origin]) :
     results = FilterDreamsService.new(params[:regions]).call
-    puts params["regions"]
     @dreams = results
 
     #ici je filtre les dreams
-    if params[:query].present?
-      @dreams = Dream.where("name ILIKE ?", "%#{params[:query]}%")
-    end
-    respond_to do |format|
-      format.html
-      format.text { render partial: "dreams_list", locals: { dreams: @dreams }, formats: [:html] }
-    end
-
     @markers = @dreams.geocoded.map do |dream|
       puts dream.name
       {
@@ -29,6 +19,15 @@ class DreamsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { dream: dream }, formats: [:html]),
       }
     end
+    
+    if params[:query].present?
+      @dreams = Dream.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+    respond_to do |format|
+      format.html
+      format.text { render partial: "dreams_list", locals: { dreams: @dreams }, formats: [:html] }
+    end
+
   end
 
   def show
