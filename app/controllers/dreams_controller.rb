@@ -19,36 +19,17 @@ class DreamsController < ApplicationController
       format.text { render partial: "dreams_list", locals: { dreams: @dreams }, formats: [:html] }
     end
 
-    # @dreams = Dream.where('name ilike ?', "%#{params[:name]}%") if params[:name].present?
-    # render(partial: 'dreams', locals: { dreams: @dreams })
-    #autre façon
-    # if params[:query].present?
-    #   @dreams = Dream.where("name ILIKE ?", "%" + params[:query] + "%")
-    # end
-
     @markers = @dreams.geocoded.map do |dream|
       puts dream.name
       {
         lat: dream.latitude,
         lng: dream.longitude,
         id: dream.id,
-        info_window: render_to_string(partial: "info_window", locals: {dream:dream}),
+        # info_window: { render_to_string partial: "info_window", locals: { dreams: @dreams}, formats: [:html] },
+        info_window: render_to_string(partial: "info_window", locals: { dream: dream }, formats: [:html]),
       }
     end
   end
-
-  # def search
-  #   @dreams = Dream.where("name LIKE?", "%" + params[:q] + "%")
-  # end
-
-  # def list
-  #   session['filters'] = {} if session['filters'].blank?
-
-  #   session['filters'].merge!(filter_params)
-  #   dreams = Dream.includes(:name)
-
-  #   render(partial: 'dreams', locals: { dreams: dreams })
-  # end
 
   def show
     @dream = Dream.find(params[:id])

@@ -1,6 +1,30 @@
-<% @dreams.each do |dream| %>
-  <div class="div-card">
-    <%= image_tag dream.img_url_one, class: 'image' %>
-    <h5><%= dream.name %></h5>
+<div class="b-box" data-controller="dreams">
+  <div class="card-for-img-and-mapbox">
+    <% @dreams.each do |dream| %>
+    <div class="div-card" data-action="mouseenter->dreams#onCard" data-id="<%= dream.id %>">
+      <%= image_tag dream.img_url_one, class: 'image' %>
+        <%# <p><%= dream.description </p> %>
+      <h5><%= dream.name %></h5>
+      <div class="dream-dreamd-actions">
+        <%= link_to "Plus d'informations", dream_path(dream) %>
+        <%# <%= link_to "Edit", edit_dream_path(dream), class: "ms-3 text-warning" %>
+        <%# <%= link_to "Remove", dream_path(dream), %>
+            <%# data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, %>
+            <%# class: "ms-3 text-danger" %>
+        <%# %>
+      </div>
+    </div>
+    <% end %>
+
+<% if @dreams.any? %>
+  <div class="index-map">
+    <div style="width: 450px; height: 100vh"
+      data-controller="map"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-action="point->map#popup"
+      data-dreams-target="map">
+    </div>
   </div>
 <% end %>
+  </div>
