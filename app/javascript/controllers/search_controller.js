@@ -1,7 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+
   static targets = ["results", "input"]
+
   updateDreams() {
     const url = new URL(window.location.href);
     url.searchParams.set(this.inputTarget.name, this.inputTarget.value);

@@ -11,16 +11,16 @@
     </div>
 </div>
 
-  <div data-controller="search">
-    <%= form_with url: dreams_path, method: :get do |form| %>
-      <%= form.text_field :query,
-        placeholder: "Search",
-        autocomplete: "off",
-        data: { action: "input->search#updateDreams", search_target: "input" }
-      %>
-    <% end %>
-    <div data-search-target="results">
-      <%= render "dreams/dreams_list", locals: { dreams: @dreams } %>
-    </div>
+<div data-controller="search">
+  <%= form_with url: dreams_path, method: :get do |form| %>
+    <%= form.text_field :query,
+      placeholder: "Search",
+      autocomplete: "off",
+      class: "search-form",
+      data: { action: "input->search#updateDreams", search_target: "input" }
+    %>
+  <% end %>
+  <div data-search-target="results">
+    <%= render "dreams/dreams_list", locals: { dreams: @dreams } %>
   </div>
 </div>
