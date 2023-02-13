@@ -47,8 +47,7 @@ export default class extends Controller {
     this.openPopup(marker)
   }
 
-  #v
-  () {
+  #addMarkersToMap() {
     this.markers = []
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
