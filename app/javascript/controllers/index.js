@@ -22,8 +22,5 @@ application.register("map", MapController)
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 
-import SplitCarouselController from "./split_carousel_controller"
-application.register("split-carousel", SplitCarouselController)
-
 import TomselectController from "./tomselect_controller"
 application.register("tomselect", TomselectController)
