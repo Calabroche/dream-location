@@ -3,13 +3,14 @@ class DreamsController < ApplicationController
   # before_action :set_dream, only: %i[show edit update destroy]
 
   def index
-    @dreams = Dream.all
+    @dreams = FilterDreamsService.new(params[:regions]).call
 
-    results = FilterDreamsService.new(params[:regions]).call
-    @dreams = results
+    #ici je filtre les dreams
+    if params[:query].present?
+      @dreams = @dreams.where("name ILIKE ?", "%#{params[:query]}%")
+    end
 
     @markers = @dreams.geocoded.map do |dream|
-      puts dream.name
       {
         lat: dream.latitude,
         lng: dream.longitude,
@@ -18,10 +19,7 @@ class DreamsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { dream: dream }, formats: [:html]),
       }
     end
-    #ici je filtre les dreams
-    if params[:query].present?
-      @dreams = Dream.where("name ILIKE ?", "%#{params[:query]}%")
-    end
+
     respond_to do |format|
       format.html
       format.text { render partial: "dreams_list", locals: { dreams: @dreams }, formats: [:html] }

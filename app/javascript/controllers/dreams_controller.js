@@ -4,8 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['map']
 
-  onCard(e) {
-    const event = new CustomEvent('point', { detail: e.currentTarget.dataset.id });
-    this.mapTarget.dispatchEvent(event)
+  onCard(event) {
+    const customEvent = new CustomEvent('point', { detail: event.currentTarget.dataset.id });
+    this.mapTarget.dispatchEvent(customEvent)
   }
 }

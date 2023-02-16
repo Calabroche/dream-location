@@ -5,9 +5,15 @@
   <p class="car-show-address">Rappel, vous avez choisis la région: <%= @dream.regions %></p>
 </div>
 
-<div class="class-for-img">
-  <div class="image-show-dreams">
-    <img src="<%= @dream.img_url_one %>"class="image">
+<div class="class-for-img" data-controller="carousel">
+
+  <img src="<%= @dream.img_url_one %>" class="show-dreams-image" data-action="click->carousel#openImage">
+
+  <div class="image-show-dreams" data-carousel-target="modal">
+    <div class="image-modal-content">
+      <span data-action="click->carousel#closeImage" class="close">&times;</span>
+      <img data-carousel-target="image" src="" class="image">
+    </div>
   </div>
 
   <div class="image-two-show-dreams">

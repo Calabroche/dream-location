@@ -20,11 +20,6 @@
       class: "search-form",
       data: { action: "input->search#updateDreams", search_target: "input" }
     %>
-    <style>
-  .search-form::placeholder {
-    color: black;
-  }
-</style>
   <% end %>
   <div data-search-target="results">
     <%= render "dreams/dreams_list", locals: { dreams: @dreams } %>

@@ -1,5 +1,4 @@
 class FilterDreamsService
-
   def initialize(regions)
     @regions = regions
   end
