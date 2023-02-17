@@ -10,21 +10,28 @@
   <img src="<%= @dream.img_url_one %>" class="show-dreams-image" data-action="click->carousel#openImage">
 
   <div class="image-show-dreams" data-carousel-target="modal">
-    <div class="image-modal-content">
+    <div class="image-modal-content"  data-class="active">
       <span data-action="click->carousel#closeImage" class="close">&times;</span>
-      <img data-carousel-target="image" src="" class="image">
+      <img data-carousel-target="image slide" src="" class="image">
     </div>
   </div>
 
-  <div class="image-two-show-dreams">
-    <img src="<%= @dream.img_url_two %>"class="image-two">
-    <img src="<%= @dream.img_url_three %>"class="image-two">
+
+  <div class="image-two-show-dreams" data-carousel-target="modal">
+    <div class="image-modal-content" data-class="active" data-carousel-target="image slide">
+      <img src="<%= @dream.img_url_two %>" class="image-two-show-dreams" data-action="click->carousel#openImage" >
+      <img src="<%= @dream.img_url_three %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+    </div>
   </div>
 
-  <div class="image-three-show-dreams">
-    <img src="<%= @dream.img_url_four %>"class="image-two">
-    <img src="<%= @dream.img_url_five %>"class="image-two">
+  <div class="image-three-show-dreams"  data-carousel-target="modal">
+    <div class="image-modal-content" data-class="active" data-carousel-target="image slide">
+      <img src="<%= @dream.img_url_two %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+      <img src="<%= @dream.img_url_three %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+    </div>
   </div>
+
+
 </div>
 
 
