@@ -1,18 +1,24 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["modal", "image", "background", "slide"]
-  static values = { index: Number }
+  static targets = ["modal", "image", "slide", "imageShowDreams"]
+  static values = {
+    index: Number,
+    count: Number
+  }
 
 
   connect (){
-  console.log("coucou");
   console.log(this.imageTarget);
-  console.log(this.modalTarget);
-  console.log(this.backgroundTarget);
-  console.log(this.slideTargets);
-  this.indexValue = 0
-  this.handleKeyDown = this.handleKeyDown.bind(this)
+  console.log(this.slideTarget);
+  this.index = 0
+  this.count = this.imageTargets.length
+  this.showCurrentImage()
+  this.addKeydownEventListener()
+  }
+
+  disconnect() {
+    this.removeKeydownEventListener()
   }
 
   openImage(event) {
@@ -20,62 +26,58 @@ export default class extends Controller {
     const imageUrl = imageElement.src
 
     this.imageTarget.src = imageUrl
+    this.modalTarget.classList.add("opaque-background")
     this.modalTarget.style.display = "block"
-    this.backgroundTarget.classList.add('blur')
   }
 
   closeImage() {
+    this.modalTarget.classList.remove("opaque-background")
     this.modalTarget.style.display = "none"
-    this.backgroundTarget.classList.remove('blur')
+  }
+
+  hideImage() {
+    this.modalTarget.classList.remove("active");
+    this.contentTarget.classList.remove("active");
+    this.imageTarget.src = "";
   }
 
   next() {
-    this.indexValue++
-    if (this.indexValue >= this.slideTargets.length) {
-      this.indexValue = 0
+    if (this.index < this.count - 1) {
+      this.index++
+      this.showCurrentImage()
     }
   }
 
-  previous() {
-    this.indexValue--
-    if (this.indexValue < 0) {
-      this.indexValue = this.slideTargets.length - 1
+  prev() {
+    if (this.index > 0) {
+      this.index--
+      this.showCurrentImage()
     }
   }
 
-  get currentIndex() {
-    return this.indexValue
-  }
-
-  set currentIndex(value) {
-    this.indexValue = value
-  }
-
-  handleKeyDown(event) {
-    if (event.keyCode === 37) { // left arrow
-      this.previous()
-    } else if (event.keyCode === 39) { // right arrow
-      this.next()
-    }
-  }
-
-  connect() {
-    document.addEventListener("keydown", this.handleKeyDown)
-  }
-
-  disconnect() {
-    document.removeEventListener("keydown", this.handleKeyDown)
-  }
-
-  update() {
-    this.slideTargets.forEach((slide, index) => {
-      if (index === this.currentIndex) {
-        slide.classList.add("active")
-        slide.classList.remove("inactive")
-      } else {
-        slide.classList.remove("active")
-        slide.classList.add("inactive")
-      }
+  showCurrentImage() {
+    this.imageTargets.forEach((image, index) => {
+      image.classList.toggle("active", index == this.index)
     })
   }
+
+  addKeydownEventListener() {
+    document.addEventListener('keydown', this.handleKeydown)
+  }
+
+  removeKeydownEventListener() {
+    document.removeEventListener('keydown', this.handleKeydown)
+  }
+
+  handleKeydown = event => {
+    switch (event.keyCode) {
+      case 37: // left arrow key
+        this.prev()
+        break
+      case 39: // right arrow key
+        this.next()
+        break
+    }
+  }
+
 }
