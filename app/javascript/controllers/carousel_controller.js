@@ -1,33 +1,39 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["modal", "image", "slide", "imageShowDreams"]
+  static targets = ["modal", "image", "slide"]
   static values = {
     index: Number,
     count: Number
   }
 
-
-  connect (){
-  console.log(this.imageTarget);
-  console.log(this.slideTarget);
-  this.index = 0
-  this.count = this.imageTargets.length
-  this.showCurrentImage()
-  this.addKeydownEventListener()
+  connect() {
+    console.log(this.imageTarget)
+    console.log(this.slideTarget)
+    this.index = 0
+    this.count = this.slideTargets.length
+    this.addKeyboardListener()
   }
 
-  disconnect() {
-    this.removeKeydownEventListener()
+  addKeyboardListener() {
+    document.addEventListener("keydown", (event) => {
+      if (this.modalTarget.style.display === "block") {
+        if (event.key === "ArrowLeft") {
+          this.prevImage()
+        } else if (event.key === "ArrowRight") {
+          this.nextImage()
+        }
+      }
+    })
   }
 
   openImage(event) {
     const imageElement = event.currentTarget
     const imageUrl = imageElement.src
-
     this.imageTarget.src = imageUrl
     this.modalTarget.classList.add("opaque-background")
     this.modalTarget.style.display = "block"
+    this.index = Array.from(this.slideTargets).indexOf(imageElement)
   }
 
   closeImage() {
@@ -35,49 +41,13 @@ export default class extends Controller {
     this.modalTarget.style.display = "none"
   }
 
-  hideImage() {
-    this.modalTarget.classList.remove("active");
-    this.contentTarget.classList.remove("active");
-    this.imageTarget.src = "";
+  prevImage() {
+    this.index = (this.index - 1 + this.count) % this.count
+    this.imageTarget.src = this.slideTargets[this.index].src
   }
 
-  next() {
-    if (this.index < this.count - 1) {
-      this.index++
-      this.showCurrentImage()
-    }
+  nextImage() {
+    this.index = (this.index + 1) % this.count
+    this.imageTarget.src = this.slideTargets[this.index].src
   }
-
-  prev() {
-    if (this.index > 0) {
-      this.index--
-      this.showCurrentImage()
-    }
-  }
-
-  showCurrentImage() {
-    this.imageTargets.forEach((image, index) => {
-      image.classList.toggle("active", index == this.index)
-    })
-  }
-
-  addKeydownEventListener() {
-    document.addEventListener('keydown', this.handleKeydown)
-  }
-
-  removeKeydownEventListener() {
-    document.removeEventListener('keydown', this.handleKeydown)
-  }
-
-  handleKeydown = event => {
-    switch (event.keyCode) {
-      case 37: // left arrow key
-        this.prev()
-        break
-      case 39: // right arrow key
-        this.next()
-        break
-    }
-  }
-
 }
