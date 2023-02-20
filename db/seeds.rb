@@ -113,6 +113,23 @@ Dream.create!(
   city: "Monaco"
 )
 
+
+Dream.create!(
+  name: 'Journée vélo dans les vignes',
+  description: 'Bonjour, je propose une journée de vélo dans les vignes de la région d\'Avignon',
+  user: florian,
+  regions: 'PACA',
+  img_url_one: 'https://images.unsplash.com/photo-1633707167682-9068729bc84c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80',
+  img_url_two: 'https://images.unsplash.com/photo-1556221620-3616894469d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+  img_url_three: 'https://images.unsplash.com/photo-1629056528325-f328b5f27ae7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+  img_url_four: 'https://images.unsplash.com/photo-1602608503778-70648b3e37cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+  img_url_five: 'https://images.unsplash.com/photo-1453169753818-2feab4b4246d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+  number_street: "10",
+  name_street: "Place de l'horloge",
+  post_code: "84000",
+  city: "Avignon"
+)
+
 Dream.create!(
   name: 'Soirée offert au casino',
   description: 'Offre de 1000€ pour aller jouer au casino de Cannes',
