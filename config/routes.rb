@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "search", to: "dreams#search"
   resources :dreams do
     resources :locations, only: [:create]
+    resources :likes, only: [:create, :destroy]
   end
   resources :chatrooms, only: [:show, :index, :new, :create] do
     resources :messages, only: [:create]

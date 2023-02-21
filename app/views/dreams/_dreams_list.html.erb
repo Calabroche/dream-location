@@ -3,6 +3,16 @@
     <% @dreams.each do |dream| %>
     <div class="div-card" data-action="mouseenter->dreams#onCard" data-id="<%= dream.id %>">
       <%= image_tag dream.img_url_one, class: 'image' %>
+
+      <%= button_to "J'aime", method: :post, remote: true, class: "btn btn-primary" %>
+
+      <div class="spot-heart">
+        <input id="heart" type="checkbox" />
+        <label for="heart"><i class="fa-solid fa-heart"></i></label>
+      </div>
+
+      <p><%= @like.count %> <%= (@like.count) == 1 ? 'Like' : 'Likes'%></p>
+
       <h5><%= dream.name %></h5>
       <div class="dream-dreamd-actions">
         <%= link_to "Plus d'informations", dream_path(dream) %>
