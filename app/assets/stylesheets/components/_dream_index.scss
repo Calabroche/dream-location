@@ -4,7 +4,7 @@
 
 .image{
   height: 220px;
-  width: 280px;
+  width: 310px;
   border-radius: 8px;
 }
 .card-for-img-and-mapbox{
@@ -74,7 +74,7 @@ flex-wrap: wrap;
   background-color: transparent;
   border-radius: 5px;
   padding: 5px;
-  display: inline-block;
+  display: block;
 }
 
 .fa-heart::before{
@@ -86,14 +86,13 @@ flex-wrap: wrap;
   background-color: transparent;
 }
 
-
 .image-container {
   position: relative; /* rend le conteneur positionné */
-  display: inline-block; /* permet à l'icône d'être positionnée à côté de l'image */
+ /* permet à l'icône d'être positionnée à côté de l'image */
 }
 
 .spot-heart {
   position: absolute; /* rend l'icône positionnée par rapport au conteneur */
-  top: 0; /* positionne l'icône en haut */
-  right: 30; /* positionne l'icône à droite */
+  top: 5px; /* positionne l'icône en haut */
+  right: 5px; /* positionne l'icône à droite */
 }
