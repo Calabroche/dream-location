@@ -14,4 +14,6 @@ class Dream < ApplicationRecord
     "#{number_street} #{name_street} #{post_code} #{city}"
   end
 
+
+
 end

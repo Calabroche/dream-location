@@ -66,3 +66,22 @@ flex-wrap: wrap;
   margin-left: 20px;
   margin-right: -3px;
 }
+
+//Heart
+
+.buttons {
+  border: none;
+  background-color: #FFF1FB;
+  border-radius: 5px;
+  padding: 5px;
+  display: inline-block;
+}
+
+.fa-heart::before{
+  color: #cb1c1c;
+}
+
+.button-like{
+  border: none;
+  background-color: #FFF1FB;
+}
