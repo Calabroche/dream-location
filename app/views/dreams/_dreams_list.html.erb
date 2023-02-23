@@ -2,22 +2,23 @@
   <div class="card-for-img-and-mapbox">
     <% @dreams.each do |dream| %>
     <div class="div-card" data-action="mouseenter->dreams#onCard" data-id="<%= dream.id %>">
-      <%= image_tag dream.img_url_one, class: 'image' %>
-
+     <div class="image-container">
+  <%= image_tag dream.img_url_one, class: 'image' %>
   <div class="spot-heart">
     <% if user_signed_in? %>
       <% if current_user.likes.exists?(dream: dream) %>
-
-      <%= button_to dream_like_path(dream, current_user.likes.find_by(dream: dream)), method: :delete, remote: true, class: "buttons", data: { like_id: current_user.likes.find_by(dream: dream)&.id, liked: current_user.likes.find_by(dream: dream).present? } do %>
-        <i class="fa-solid fa-heart" data-controller="like" data-like-target="heart" data-like-action="click->like#toggle"></i>
-      <% end %>
-        <% else %>
-          <%= button_to dream_likes_path(dream), method: :post, remote: true, class: "button-like", data: { dream_id: dream.id } do %>
-            <i class="fa-regular fa-heart" data-controller="like" data-like-target="heart" data-like-action="click->like#toggle"></i>
+        <%= button_to dream_like_path(dream, current_user.likes.find_by(dream: dream)), method: :delete, remote: true, class: "buttons", data: { like_id: current_user.likes.find_by(dream: dream)&.id, liked: current_user.likes.find_by(dream: dream).present? } do %>
+          <i class="fa-solid fa-heart" data-controller="like" data-like-target="heart" data-like-action="click->like#toggle"></i>
+        <% end %>
+      <% else %>
+        <%= button_to dream_likes_path(dream), method: :post, remote: true, class: "button-like", data: { dream_id: dream.id } do %>
+          <i class="fa-regular fa-heart" data-controller="like" data-like-target="heart" data-like-action="click->like#toggle"></i>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
   </div>
+</div>
+
       <h5><%= dream.name %></h5>
       <div class="dream-dreamd-actions">
         <%= link_to "Plus d'informations", dream_path(dream) %>

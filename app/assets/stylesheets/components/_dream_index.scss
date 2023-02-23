@@ -71,7 +71,7 @@ flex-wrap: wrap;
 
 .buttons {
   border: none;
-  background-color: #FFF1FB;
+  background-color: transparent;
   border-radius: 5px;
   padding: 5px;
   display: inline-block;
@@ -83,5 +83,17 @@ flex-wrap: wrap;
 
 .button-like{
   border: none;
-  background-color: #FFF1FB;
+  background-color: transparent;
+}
+
+
+.image-container {
+  position: relative; /* rend le conteneur positionné */
+  display: inline-block; /* permet à l'icône d'être positionnée à côté de l'image */
+}
+
+.spot-heart {
+  position: absolute; /* rend l'icône positionnée par rapport au conteneur */
+  top: 0; /* positionne l'icône en haut */
+  right: 30; /* positionne l'icône à droite */
 }
