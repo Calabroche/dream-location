@@ -3,7 +3,8 @@
     <% @dreams.each do |dream| %>
     <div class="div-card" data-action="mouseenter->dreams#onCard" data-id="<%= dream.id %>">
      <div class="image-container">
-  <%= image_tag dream.img_url_one, class: 'image' %>
+  <%= link_to(image_tag(dream.img_url_one, class: 'image'), dream_path(dream)) %>
+
   <div class="spot-heart">
     <% if user_signed_in? %>
       <% if current_user.likes.exists?(dream: dream) %>
