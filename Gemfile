@@ -48,6 +48,8 @@ gem "devise"
 gem "geocoder"
 gem "sendgrid-ruby"
 gem "ransack"
+gem "letter_opener", group: :development
+
 # gem "cloudinary", "~> 1.2.2"
 #
 
