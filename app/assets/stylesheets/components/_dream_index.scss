@@ -49,6 +49,26 @@ flex-wrap: wrap;
   margin-top: 5px;
 }
 
+
+//Infos lien
+.link_to_infos{
+  text-decoration: none;
+  color: #FFF1FB;
+  font-size: 15px;
+  margin-top: 5px;
+  background-color:#AF7AC5;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.link_to_infos:hover{
+  background-color: #D2B4DE;
+  color: #000000;
+}
+
+
+
 .index-map{
   width: 42%;
   position: sticky;
