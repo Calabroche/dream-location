@@ -49,6 +49,7 @@ gem "geocoder"
 gem "sendgrid-ruby"
 gem "ransack"
 gem "letter_opener", group: :development
+gem "simple_calendar", "~> 2.4"
 
 
 gem 'dotenv-rails', groups: [:development, :test]

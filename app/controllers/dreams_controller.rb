@@ -29,7 +29,7 @@ class DreamsController < ApplicationController
 
   def show
     @dream = Dream.find(params[:id])
-    @location = Location.new
+    @meeting = Meeting.new
   end
 
   def new

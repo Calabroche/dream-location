@@ -1,0 +1,7 @@
+<h1>Add a new meeting</h1>
+<%# <%= render "form", dream: @dream %>
+<%= simple_form_for(@meetings) do |f| %>
+<%= f.input :name %>
+<%= f.input :start_time %>
+<%= f.input :end_time %>
+<% end %>

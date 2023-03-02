@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_21_130612) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_02_131307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_130612) do
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
+  create_table "meetings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id", null: false
+    t.bigint "dream_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dream_id"], name: "index_meetings_on_dream_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -97,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_130612) do
   add_foreign_key "likes", "users"
   add_foreign_key "locations", "dreams"
   add_foreign_key "locations", "users"
+  add_foreign_key "meetings", "dreams"
+  add_foreign_key "meetings", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end

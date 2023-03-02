@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :dreams do
     resources :locations, only: [:create]
     resources :likes, only: [:create, :destroy]
+    resources :meetings, only: [:new, :create]
   end
+  resources :meetings, only: [:show, :index, :destroy]
   resources :chatrooms, only: [:show, :index, :new, :create] do
     resources :messages, only: [:create]
   end
