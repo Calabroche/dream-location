@@ -4,8 +4,6 @@
 
     <% meetings.each do |meeting| %>
       <div class="meeting">
-        <p><%= meeting.name %></p>
-        <small><%= meeting.time unless meeting.multi_days? %></small>
       </div>
     <% end %>
   <% end %>
