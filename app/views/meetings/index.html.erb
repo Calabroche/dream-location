@@ -2,13 +2,11 @@
   <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
     <%= date %>
     <% colors = {} %>
-    <% meetings.each do |meeting| %>
+    <% n = meetings.map { |meeting| meeting.dream.name }.uniq.size %>
+    <% meetings.each_with_index do |meeting, index| %>
       <% if colors[meeting.dream.name].nil? %>
-        <% if colors.length % 2 == 0 %>
-          <% colors[meeting.dream.name] = "#FF0000" %>
-        <% else %>
-          <% colors[meeting.dream.name] = "#00FF00" %>
-        <% end %>
+        <% hue = index.to_f / n %>
+        <% colors[meeting.dream.name] = "hsl(#{hue * 360}, 50%, 50%)" %>
       <% end %>
       <div class="meeting" style="background-color: <%= colors[meeting.dream.name] %>;">
         <%= meeting.dream.name %>
