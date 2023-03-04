@@ -4,7 +4,11 @@
     <% colors = {} %>
     <% meetings.each do |meeting| %>
       <% if colors[meeting.dream.name].nil? %>
-        <% colors[meeting.dream.name] = "#%06x" % (rand * 0xffffff) %>
+        <% if colors.length % 2 == 0 %>
+          <% colors[meeting.dream.name] = "#FF0000" %>
+        <% else %>
+          <% colors[meeting.dream.name] = "#00FF00" %>
+        <% end %>
       <% end %>
       <div class="meeting" style="background-color: <%= colors[meeting.dream.name] %>;">
         <%= meeting.dream.name %>
