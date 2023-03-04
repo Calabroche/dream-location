@@ -1,10 +1,13 @@
 <div class="calendar-container">
   <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
     <%= date %>
-
+    <% colors = {} %>
     <% meetings.each do |meeting| %>
-      <div class="meeting">
-       <%= meeting.dream.name %>
+      <% if colors[meeting.dream.name].nil? %>
+        <% colors[meeting.dream.name] = "#%06x" % (rand * 0xffffff) %>
+      <% end %>
+      <div class="meeting" style="background-color: <%= colors[meeting.dream.name] %>;">
+        <%= meeting.dream.name %>
       </div>
     <% end %>
   <% end %>
