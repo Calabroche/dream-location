@@ -39,7 +39,6 @@
     <h5> Réserve ton rêve ici !</h5>
       <div class="flatpickr-innerContainer">
         <%= simple_form_for ([@dream, @meeting]), data: { controller: 'flatpickr' } do |f| %>
-          <%= f.input :name, label: "Nom de la réservation" %>
           <%= f.input :start_time, as: :string, input_html: { data: {flatpickr_target: "startsAt"}}%>
           <%= f.input :end_time, as: :string, input_html: { data: {flatpickr_target: "endsAt"}, id: "end_time"}%>
           <%= f.submit 'Réserver votre rêve', class: "submit" %>

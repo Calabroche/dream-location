@@ -8,10 +8,15 @@ class MeetingsController < ApplicationController
 
     # Or, for a weekly view:
     @meetings = Meeting.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
+
+
+    @meetings = Meeting.includes(:dream).all
+
   end
 
   def show
     @meeting = Meeting.find(params[:id])
+    
   end
 
   def new
