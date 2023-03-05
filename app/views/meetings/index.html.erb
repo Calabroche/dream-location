@@ -1,6 +1,7 @@
 <div class="calendar-container">
   <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
     <%= date %>
+
     <% colors = {} %>
     <% n = meetings.map { |meeting| meeting.dream.name }.uniq.size %>
     <% meetings.each_with_index do |meeting, index| %>
@@ -8,9 +9,11 @@
         <% hue = index.to_f / n %>
         <% colors[meeting.dream.name] = "hsl(#{hue * 360}, 50%, 50%)" %>
       <% end %>
+        <%= link_to meeting_path(meeting) do %>
       <div class="meeting" style="background-color: <%= colors[meeting.dream.name] %>;">
         <%= meeting.dream.name %>
       </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
