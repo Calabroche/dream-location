@@ -14,26 +14,15 @@
   background: #863fc8;
   transition: background 0.3s ease;
   margin-bottom: 5px;
+  text-decoration: none;
 }
 
 .meeting:hover {
-  background: #4e2475;
-  color: white;
+  opacity: 0.8;
+
 }
 
-.dream-color-1 {
-  background: #863fc8;
-}
 
-.dream-color-2 {
-  background: #4e2475;
+a{
+  text-decoration: none;
 }
-
-.dream-color-3 {
-  background: #2e1a3f;
-}
-
-.dream-color-4 {
-  background: #1a0d1f;
-}
-
