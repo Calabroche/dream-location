@@ -1,7 +1,13 @@
+
+ <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
 <div id="message-<%= message.id %>">
+
   <small class="color-message">
     <strong><%= message.user.nickname %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p><%= message.content %></p>
 </div>
+  </div>
+</div>  

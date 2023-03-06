@@ -7,16 +7,14 @@ data-controller="chatrooms"
 data-chatrooms-chatroom-id-value="<%= @chatroom.id %>"
 >
 
-    <% @chatroom.messages.each do |message| %>
-  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-      <%= render "messages/message", message: message %>
-  </div>
-  </div>
-    <% end %>
+  <% @chatroom.messages.each do |message| %>
+    <%= render "messages/message", message: message %>
+  <% end %>
 </div>
 
 <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+
 <%  end %>
 </div>
