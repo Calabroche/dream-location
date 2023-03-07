@@ -9,7 +9,7 @@ export default class extends Controller {
 
   connect() {
     console.log(this.imageTarget)
-    console.log(this.slideTarget)
+    console.log(this.slideTargets)
     this.index = 0
     this.count = this.slideTargets.length
     this.addKeyboardListener()
@@ -19,6 +19,7 @@ export default class extends Controller {
     document.addEventListener("keydown", (event) => {
       if (this.modalTarget.style.display === "block") {
         if (event.key === "ArrowLeft") {
+          console.log("left");
           this.prevImage()
         } else if (event.key === "ArrowRight") {
           this.nextImage()
@@ -43,7 +44,9 @@ export default class extends Controller {
 
   prevImage() {
     this.index = (this.index - 1 + this.count) % this.count
+    console.log(this.index);
     this.imageTarget.src = this.slideTargets[this.index].src
+    console.log(this.imageTarget.src);
   }
 
   nextImage() {
