@@ -7,28 +7,25 @@
 
 <div class="class-for-img" data-controller="carousel">
   <img src="<%= @dream.img_url_one %>" class="show-dreams-image" data-action="click->carousel#openImage">
-  <div class="image-show-dreams" data-carousel-target="modal slide">
-    <div class="image-modal-content">
-      <span data-action="click->carousel#closeImage" class="close">&times;</span>
-      <img src="" class="image" data-carousel-target="image">
+    <div class="image-show-dreams" data-carousel-target="modal">
+      <div class="image-modal-content">
+        <span data-action="click->carousel#closeImage" class="close">&times;</span>
+        <img src="" class="image" data-carousel-target="image">
+      </div>
     </div>
-  </div>
-  <div class="image-two-show-dreams" data-carousel-target="modal slide">
-    <div class="image-modal-content">
-      <img src="<%= @dream.img_url_two %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
-      <img src="<%= @dream.img_url_three %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+    <div class="image-two-show-dreams">
+      <div class="image-modal-content">
+        <img src="<%= @dream.img_url_two %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+        <img src="<%= @dream.img_url_three %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+      </div>
     </div>
-  </div>
-  <div class="image-three-show-dreams" data-carousel-target="modal slide">
-    <div class="image-modal-content">
-      <img src="<%= @dream.img_url_four %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
-      <img src="<%= @dream.img_url_five %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+    <div class="image-three-show-dreams" >
+      <div class="image-modal-content">
+        <img src="<%= @dream.img_url_four %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+        <img src="<%= @dream.img_url_five %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+      </div>
     </div>
-  </div>
 </div>
-
-<script src="https://unpkg.com/@hotwired/stimulus@3.0.0/dist/stimulus.umd.js"></script>
-
 
 <div class="div-for-des-calandar">
   <div class="show-description">
