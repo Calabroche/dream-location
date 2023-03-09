@@ -38,8 +38,6 @@ export default class extends Controller {
     this.setCurrentImageTarget(imageElement);
   }
 
-
-
   setCurrentImageTarget(target) {
     this.currentImageTargets.forEach((currentImageTarget) => {
       currentImageTarget.classList.remove("current-image")

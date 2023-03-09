@@ -2,18 +2,27 @@
   <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
     <%= date %>
 
-    <% colors = {} %>
-    <% n = meetings.map { |meeting| meeting.dream.name }.uniq.size %>
-    <% meetings.each_with_index do |meeting, index| %>
-      <% if colors[meeting.dream.name].nil? %>
-        <% hue = index.to_f / n %>
-        <% colors[meeting.dream.name] = "hsl(#{hue * 360}, 50%, 50%)" %>
-      <% end %>
-        <%= link_to meeting_path(meeting) do %>
-      <div class="meeting" style="background-color: <%= colors[meeting.dream.name] %>;">
-        <%= meeting.dream.name %>
-      </div>
-      <% end %>
+<% colors = {} %>
+<% meetings.each_with_index do |meeting, index| %>
+  <% if index == 0 %>
+    <% color = "#9058FF" %>
+  <% elsif index == 1 %>
+    <% color = "#5C2DC6" %>
+  <% elsif index == 2 %>
+    <% color = "#120924" %>
+  <% else %>
+    <% n = meetings.map { |m| m.dream.name }.uniq.size %>
+    <% if colors[meeting.dream.name].nil? %>
+      <% hue = index.to_f / n %>
+      <% colors[meeting.dream.name] = "hsl(#{hue * 360}, 50%, 50%)" %>
     <% end %>
+    <% color = colors[meeting.dream.name] %>
   <% end %>
+  <%= link_to meeting_path(meeting) do %>
+    <div class="meeting" style="background-color: <%= color %>;">
+      <%= meeting.dream.name %>
+    </div>
+  <% end %>
+<% end %>
+<% end %>
 </div>
