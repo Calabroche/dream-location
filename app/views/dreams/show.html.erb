@@ -16,18 +16,20 @@
   <div class="image-two-show-dreams" data-target="carousel.slide" data-carousel-target="slide">
     <div class="image-modal-content">
       <img src="<%= @dream.img_url_two %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
-      <img src="<%= @dream.img_url_three %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+      <div data-target="carousel.slide" >
+        <img src="<%= @dream.img_url_three %>" class="image-two-show-dreams" data-action="click->carousel#openImage">
+      </div>
     </div>
   </div>
   <div class="image-three-show-dreams" data-target="carousel.slide" data-carousel-target="slide">
     <div class="image-modal-content">
       <img src="<%= @dream.img_url_four %>" class="image-three-show-dreams" data-action="click->carousel#openImage">
-      <img src="<%= @dream.img_url_five %>" class="image-three-show-dreams" data-action="click->carousel#openImage">
+        <div data-target="carousel.slide">
+          <img src="<%= @dream.img_url_five %>" class="image-three-show-dreams" data-action="click->carousel#openImage">
+        </div>
     </div>
   </div>
 </div>
-
-
 
 
 <div class="div-for-des-calandar">
