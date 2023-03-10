@@ -1,20 +1,17 @@
 <div class="cont chatroom">
+  <h1><%= @chatroom.name %></h1>
+    <div class="messages"
+    data-chatrooms-target="messages"
+    data-controller="chatrooms"
+    data-chatrooms-chatroom-id-value="<%= @chatroom.id %>"
+    >
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
 
-<h1><%= @chatroom.name %></h1>
-<div class="messages"
-data-chatrooms-target="messages"
-data-controller="chatrooms"
-data-chatrooms-chatroom-id-value="<%= @chatroom.id %>"
->
-
-  <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
-</div>
-
-<%= simple_form_for [@chatroom, @message], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+  <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-
-<%  end %>
+  <%  end %>
 </div>

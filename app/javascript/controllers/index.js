@@ -10,6 +10,9 @@ application.register("carousel", CarouselController)
 import ChatroomsController from "./chatrooms_controller"
 application.register("chatrooms", ChatroomsController)
 
+import ConversationController from "./conversation_controller"
+application.register("conversation", ConversationController)
+
 import DreamsController from "./dreams_controller"
 application.register("dreams", DreamsController)
 

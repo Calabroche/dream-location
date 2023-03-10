@@ -6,6 +6,7 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
+    puts "Chatroom: #{@chatroom.inspect}"
     @message = Message.new
 
     @messages = Message.where(chatroom: @chatroom)
