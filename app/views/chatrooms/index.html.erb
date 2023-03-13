@@ -1,17 +1,19 @@
-
-  <div class="two-first-div"></div>
+<div class="two-first-div"></div>
   <%= form_with(model: Chatroom.new) do |form| %>
     <%= form.text_field :name %>
     <%= form.submit class: "btn btn-primary", data: { disable_with: "Submitting..." }, id: "submit-button" %>
   <% end %>
 
 
-  <div class="general-presentation-chatroom">
-    <% @chatrooms.each do |chat|  %>
-      <div class="presentation-chatroom">
-        <%= link_to chat.name, chatroom_path(chat.id), class: "test" %>
-      </div>
-    <% end %>
+<div class="general-presentation-chatroom" data-controller="chatroom">
+  <% @chatrooms.each do |chat|  %>
+    <div class="presentation-chatroom" id="chatroom-<%= chat.id %>" data-chatroom-target="chatroom">
+      <%= link_to chat.name, chatroom_path(chat.id), class: "test", data: { chatroom_id: chat.id }, data_action: "click->chatroom#show" %>
+    </div>
+  <% end %>
+</div>
+
+
+  <div>
+    <%= render "chatrooms/show" %>
   </div>
-  <%# ici lien vers le new de chartoom, que j'ai supprimé %>
-  <%# <%= link_to "Créer un chat", new_chatroom_path %>
