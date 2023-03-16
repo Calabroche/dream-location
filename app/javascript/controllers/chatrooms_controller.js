@@ -1,9 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
+
 export default class extends Controller {
   static values = { chatroomId: Number }
-  static targets = ["messages", "chatroom"]
+
+  static targets = ["messages", "chatroom", "likesCount"]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
@@ -38,6 +40,21 @@ export default class extends Controller {
 
     // Show this chatroom
     chatroomDiv.style.display = 'block'
+  }
+
+  like(event) {
+    event.preventDefault()
+    const messageId = this.element.dataset.messageId
+    Rails.ajax({
+      url: `/messages/${messageId}/like`,
+      type: 'post',
+      success: (data) => {
+        this.likesCountTarget.innerText = data.likesCount
+      },
+      error: (data) => {
+        console.log("Error liking message")
+      }
+    })
   }
 
 }
